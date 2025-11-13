@@ -1,0 +1,28 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "title": "Grocery List",
+      "content": "Milk, Bread, Eggs, Butter"
+    },
+    {
+      "id": 2,
+      "title": "Meeting Notes",
+      "content": "Discuss project timeline and deliverables."
+    },
+    {
+      "id": 3,
+      "title": "Ideas",
+      "content": "Start a blog about tech tutorials."
+    },
+    {
+      "id": 4,
+      "title": "Books to Read",
+      "content": "The Pragmatic Programmer, Clean Code, You Don't Know JS"
+    },
+    {
+      "id": "1763037418265",
+      "title": "Note 1"
+    }
+  ]
+}

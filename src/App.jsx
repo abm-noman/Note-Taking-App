@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
@@ -11,6 +11,13 @@ function App() {
   };
   const [editMode, setEditMode] = useState(false);
   const [editableNote, setEditableNote] = useState(null);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/notes")
+      .then((response) => response.json())
+      .then((data) => setNotes(data))
+      .catch((error) => console.error("Error fetching notes:", error));
+  }, []);
 
   //event handlers
   //const createHandler = () => {};
@@ -25,6 +32,20 @@ function App() {
         id: Date.now() + "",
         title: noteTitle,
       };
+      fetch("http://localhost:5000/notes", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newNote),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setNotes([...notes, data]);
+          setNoteTitle("");
+        })
+        .catch((error) => console.error("Error adding note:", error));
+      // 
       setNotes([...notes, newNote]);
       setNoteTitle("");
     }
